@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" xmlns:th="http://www.thymeleaf.org"
+      layout:decorate="~{layout}">
+    <div layout:fragment="content">
+        <form th:action="@{/sendEmail}" method="post" th:object="${mail}">
+            <label for="senderName">Imię wysyłającego</label>
+            <div id="senderName">
+                <input type="text" th:field="*{sender} " required/>
+            </div>
+            <label for="recieverName">Email wysyłającego</label>
+            <div id="recieverName">
+                <input type="email" th:field="*{emailAddress} " required/>
+            </div>
+            <label for="content">Treść wiadomości</label>
+            <div id="content">
+                <textarea rows="5" cols="50" th:field="*{content}"></textarea>
+            </div>
+            <button type="submit">Wyślij wiadomość</button>
+        </form>
+    </div>
+</html>
+
