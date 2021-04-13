@@ -14,7 +14,7 @@ public class MailController {
     }
 
     @GetMapping("/form")
-    public String goToAddProductForm(Model model) {
+    public String redirectToForm(Model model) {
         Mail mail = new Mail();
         model.addAttribute("mail", mail);
         return "form";
@@ -22,8 +22,7 @@ public class MailController {
 
     @PostMapping("/sendEmail")
     public String createEmail(Mail mail) {
-        System.out.println(mail);
-        mailService.acceptEmail(mail.getSender(), mail.getContent());
+        mailService.acceptEmail(mail.getSender(), mail.getContent(), mail.getEmailAddress());
         mailService.sendConfirmation(mail.getEmailAddress());
         return "success";
     }
