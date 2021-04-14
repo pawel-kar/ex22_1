@@ -10,11 +10,11 @@ import javax.mail.internet.MimeMessage;
 
 @Service
 public class MailService {
-
-    private final JavaMailSender javaMailSender;
     private static final String SERVICE_EMAIL_ADDRESS = "kontodoszkoleniajavy@gmail.com";
     private static final String SUBJECT = "FIRMA WIDELCZYK POTWIERDZENIE";
     private static final String CONFIRMATION_TEXT = "Otrzymaliśmy zapytanie, wkrótce odpowiemy na Waszego maila";
+
+    private final JavaMailSender javaMailSender;
 
     public MailService(JavaMailSender mailSender) {
         this.javaMailSender = mailSender;
